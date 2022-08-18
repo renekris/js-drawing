@@ -1,4 +1,6 @@
 const gridContainer = document.getElementById('grid-container')
+let currentColor = '255, 0, 0,';
+let currentOpacity = '1';
 
 function createGrid(gridX, gridY){
     for (let y = 0; y < gridY; y++) {
@@ -16,14 +18,35 @@ function createGrid(gridX, gridY){
 function addGridListener() {
     const gridCells = document.getElementsByClassName('grid-cell');
     Array.from(gridCells).forEach(cell => {
-        cell.addEventListener('pointerover', e => colorGridCell(e), { once: true });
+        cell.addEventListener('pointerover', e => colorGridCell(e));
     });
 }
 
+// Have to use rgba, as opacity property slows things down.
 function colorGridCell(e) {
-
-    console.dir(e.target.style.backgroundColor = 'black');
+    e.target.style.backgroundColor = `rgba(${currentColor} ${currentOpacity})`
 }
 
-createGrid(100, 100);
-addGridListener();
+function resetGrid() {
+    gridContainer.innerHTML = '';
+    drawGrid();
+}
+
+
+
+function drawGrid() {
+    createGrid(100, 100);
+    addGridListener();
+}
+
+const resetButton = document.querySelector('#reset button');
+resetButton.addEventListener('click', () => resetGrid());
+
+const opacityRange = document.getElementById('opacity');
+opacityRange.addEventListener('click', e => {
+    currentOpacity = e.target.value / 10;
+    console.log(currentOpacity);
+} )
+
+
+drawGrid()

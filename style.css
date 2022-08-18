@@ -1,19 +1,45 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    box-sizing: content-box;
 }
 
 #grid-container {
-    margin: 5%;
+    margin: 0% 5% 5% 5%;
     height: 100%;
     border: solid 5px black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#grid-control {
+    margin: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#buttons {
+    display: flex;
+    gap: 1px;
+}
+
+.opacity {
+    display: flex;
 }
 
 .grid-row {
