@@ -1,5 +1,11 @@
 html {
     box-sizing: border-box;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 *,
@@ -12,14 +18,15 @@ body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
+    width: 100vw;
     display: flex;
-    flex-direction: column;
-    box-sizing: content-box;
+    flex-direction: row;
 }
 
 #grid-container {
-    margin: 0% 5% 5% 5%;
+    margin-right: 2%;
     height: 100%;
+    width: 100%;
     border: solid 5px black;
     display: flex;
     flex-direction: column;
@@ -30,15 +37,24 @@ body {
 #grid-control {
     margin: 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #buttons {
     display: flex;
+    flex-direction: column;
     gap: 1px;
 }
 
-.opacity {
+.opacity,
+.outline {
     display: flex;
 }
 
@@ -46,13 +62,16 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-cell {
-    margin: -1px;
-    border: solid 1px black;
-    height: 100%;
     width: 100%;
+    height: 100%;
     background-color: white;
 }
 
+.cell-outline {
+    outline: solid 1px black;
+}
