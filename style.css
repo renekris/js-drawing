@@ -16,17 +16,26 @@ html {
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
     height: 100vh;
-    width: 100vw;
+    margin: 0px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
 }
 
 #grid-container {
-    height: 100%;
-    width: 100%;
+    /* Keep aspect ratio to 1:1, thank you https://stackoverflow.com/a/65864592 */
+    --r: calc(1 / 1);
+    --cv: clamp(0px,(100vw - 100vh*var(--r))*100,90vh);
+    --ch: clamp(0px,(100vh*var(--r) - 100vw)*100,90vw);
+    height: calc((var(--cv) + var(--ch)/var(--r)) );
+    width:  calc((var(--ch) + var(--cv)*var(--r)) );
+
     border: solid 5px black;
     display: flex;
     flex-direction: column;
