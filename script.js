@@ -48,6 +48,19 @@ function colorGridCell(e) {
     }
 }
 
+const btnRed = document.getElementById('btn-red');
+const btnGreen = document.getElementById('btn-green');
+const btnBlue = document.getElementById('btn-blue');
+const btnWhite = document.getElementById('btn-white');
+const btnBlack = document.getElementById('btn-black');
+
+btnRed.addEventListener('click', () => currentColor = '255, 0, 0,');
+btnGreen.addEventListener('click', () => currentColor = '0, 255, 0,');
+btnBlue.addEventListener('click', () => currentColor = '0, 0, 255,');
+btnWhite.addEventListener('click', () => currentColor = '255, 255, 255,');
+btnBlack.addEventListener('click', () => currentColor = '0, 0, 0,');
+
+
 function resetGrid() {
     gridContainer.innerHTML = '';
     drawGrid();

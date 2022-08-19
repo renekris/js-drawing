@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    background-color: #98a9b3;
 
     -webkit-user-drag: none;
     user-select: none;
@@ -91,7 +92,7 @@ body {
 }
 
 .button {
-    background-color: #FFFFFF;
+    background-color: #d0e7f3;
     border: none;
     border-radius: 8px;
     box-sizing: border-box;
@@ -115,23 +116,23 @@ body {
     cursor: wait;
 }
 
-.btn-red:active {
+#btn-red:active {
     background-color: #f00;
 }
 
-.btn-green:active {
+#btn-green:active {
     background-color: #0f0;
 }
 
-.btn-blue:active {
+#btn-blue:active {
     background-color: #00f;
 }
 
-.btn-white:active {
+#btn-white:active {
     background-color: #fff;
 }
 
-.btn-black:active {
+#btn-black:active {
     background-color: #000;
     color: #fff;
 }
