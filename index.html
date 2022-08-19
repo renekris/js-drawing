@@ -9,14 +9,20 @@
     <title>Drawing</title>
 </head>
 <body>
-    <div id="grid-control">
+    <div id="grid-controls">
         <div id="reset">
             <button class="button reset">Reset board</button>
+            <div id="grid-sizing">
+                <label for="grid-x">Grid X: </label>
+                <input type="number" name="grid-x" id="grid-x" value="50" min="0" max="250">
+                <label for="grid-y">Grid Y: </label>
+                <input type="number" name="grid-y" id="grid-y" value="50" min="0" max="250">
+            </div>
         </div>
         <div id="buttons">
             <div class="outline">
                 <label for="outline">Outline: </label>
-                <input type="checkbox" name="outline" id="outline" checked>
+                <input type="checkbox" name="outline" id="outline">
             </div>
             <div class="opacity">
                 <label for="opacity">Opacity: </label>

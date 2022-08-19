@@ -24,7 +24,6 @@ body {
 }
 
 #grid-container {
-    margin-right: 2%;
     height: 100%;
     width: 100%;
     border: solid 5px black;
@@ -34,24 +33,33 @@ body {
     align-items: center;
 }
 
-#grid-control {
+#grid-controls {
     margin: 5%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    gap: 1vh;
 }
 
 #reset {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: inherit;
 }
 
-#buttons {
+#grid-sizing {
     display: flex;
-    flex-direction: column;
-    gap: 1px;
+    justify-content: space-between;
+    gap: inherit;
+    flex-wrap: wrap;
 }
+
+#grid-x,
+#grid-y {
+    width: 100%;
+}
+
 
 .opacity,
 .outline {
@@ -74,4 +82,56 @@ body {
 
 .cell-outline {
     outline: solid 1px black;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.button {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222222;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 900;
+    margin: 0;
+    outline: none;
+    padding: 13px 23px;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: 0.2s;
+    width: auto;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.button:active {
+    background-color: white;
+    transform: scale(.98);
+    cursor: wait;
+}
+
+.btn-red:active {
+    background-color: #f00;
+}
+
+.btn-green:active {
+    background-color: #0f0;
+}
+
+.btn-blue:active {
+    background-color: #00f;
+}
+
+.btn-white:active {
+    background-color: #fff;
+}
+
+.btn-black:active {
+    background-color: #000;
+    color: #fff;
 }

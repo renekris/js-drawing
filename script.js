@@ -2,6 +2,9 @@ const gridContainer = document.getElementById('grid-container')
 let primaryMouseButtonDown = false;
 let currentColor = '255, 0, 0,';
 let currentOpacity = '1';
+let gridX = 50;
+let gridY = 50;
+
 
 document.addEventListener("mousedown", setPrimaryButtonState);
 document.addEventListener("mousemove", setPrimaryButtonState);
@@ -9,17 +12,22 @@ document.addEventListener("mouseup", setPrimaryButtonState);
 
 // Can only draw when m1 held down
 function setPrimaryButtonState(e) {
-  let flags = e.buttons !== undefined ? e.buttons : e.which;
-  primaryMouseButtonDown = (flags & 1) === 1;
+    let flags = e.buttons !== undefined ? e.buttons : e.which;
+    primaryMouseButtonDown = (flags & 1) === 1;
 }
 
-function createGrid(gridX, gridY){
-    for (let y = 0; y < gridY; y++) {
+function createGrid(gX, gY){
+    for (let y = 0; y < gY; y++) {
         const divRow = document.createElement('div');
-        for (let x = 0; x < gridX; x++) {
+        for (let x = 0; x < gX; x++) {
             const cell = document.createElement('div');
-            cell.className = 'grid-cell cell-outline';
+            cell.className = 'grid-cell';
             divRow.append(cell);
+            if (outlineInput.checked) {
+                cell.classList.add('cell-outline');
+            } else {
+                cell.classList.remove('cell-outline');
+            }
         }
         divRow.className = 'grid-row';
         gridContainer.append(divRow);
@@ -46,7 +54,7 @@ function resetGrid() {
 }
 
 function drawGrid() {
-    createGrid(100, 100);
+    createGrid(gridX, gridY);
     addGridListener();
 }
 
@@ -60,11 +68,18 @@ opacityInput.addEventListener('click', e => {
 } )
 
 const outlineInput = document.getElementById('outline');
-outlineInput.addEventListener('click', () => {
+outlineInput.addEventListener('click', e => {
     const cells = document.getElementsByClassName('grid-cell');
     Array.from(cells).forEach(cell => {
         cell.classList.toggle('cell-outline');
     })
 })
+
+
+const gridSizingX = document.getElementById('grid-x');
+const gridSizingY = document.getElementById('grid-y');
+
+gridSizingX.addEventListener('change', e => gridX = e.target.value);
+gridSizingY.addEventListener('change', e => gridY = e.target.value);
 
 drawGrid()
